@@ -1,0 +1,68 @@
+@extends('layouts.layoutagente')
+
+@section('content')
+
+ 
+
+   <br>
+
+    <h1>PREVISÃO DE CHEGADA </h1>
+
+
+  
+    <div class="col-sm-12">  
+      <div class="col-sm-2">
+        <div>
+            <i class="fa fa-calendar"></i>
+            Data inicial:<input class="form-control" id="min" name="min" value="01/01/2015">
+        </div>
+      </div>
+      <div class="col-sm-2">
+        <div>
+            <i class="fa fa-calendar"></i>
+            Data final:<input class="form-control" id="max" name="max" value="01/12/2015">
+        </div>
+      </div>
+    </div>
+
+    <div class="table">
+        <table  id="dtable" class="table table-bordered table-striped table-hover"  cellspacing="0" width="100%" style="font-size: 0.8em;">
+            <thead>
+                <tr>
+                   <th>Registro</th><th>Destino</th><th>Prev.Chegada</th><th>MBL</th><th>Navio</th>
+                </tr>
+            </thead>   
+
+            
+
+            <tbody>
+            {{-- */$x=0;/* --}}
+         
+            @foreach($registrosmars as $item)
+                {{-- */$x++;/* --}}
+               
+            <tr>
+                
+                <td><a>{{ $item->regmar}}</a></td>
+                <td><a>{{ $item->POD}}</a></td>
+                <td><a>{{ $item->ETA}}</a></td>
+                <td><a>{{ $item->NMbl }}</a></td>
+                <td><a>{{ $item->navio}}</a></td>
+                
+                
+     
+           
+            @endforeach
+             
+         
+
+            </tbody>
+        </table>
+
+            
+             
+
+
+    </div>
+
+@endsection

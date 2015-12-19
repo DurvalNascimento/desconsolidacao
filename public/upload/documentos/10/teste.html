@@ -1,0 +1,921 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.10/css/jquery.dataTables.min.css">
+
+<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.10/js/jquery.dataTables.min.js">
+</script>
+
+<script type="text/javascript" language="javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.4/moment.min.js">
+</script>
+
+<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/plug-ins/1.10.10/sorting/datetime-moment.js">
+</script>
+
+
+
+<script type="text/javascript">
+    
+    $(document).ready(function() {
+        //$.fn.dataTable.moment( 'D-M-YYYY' );
+        //$.fn.dataTable.moment( 'dddd, MMMM Do, YYYY' );
+     
+        $(function() {
+            $( "#min" ).datepicker();
+        });
+
+        $(function() {
+            $( "#max" ).datepicker();
+        });
+
+        var oTable=$('#example').dataTable();
+
+        /* Add event listeners to the two date-range filtering inputs */
+
+        $('#min, #max').keyup( function() {
+        table.draw();
+    } );
+
+    });
+
+
+</script>
+
+<script type="text/javascript">
+
+
+</script>
+
+</head>
+<body>
+
+Data Inicio:<input class="form-control" id="min" name="min" >
+Data Fim:<input class="form-control" id="max" name="max" >
+    <table id="example" class="display" cellspacing="0" width="100%">
+        <thead>
+                <tr>
+                   <th>Registro</th>
+                   <th>Agente</th>
+                   <th>ETA</th>
+                   <th>Data Chegada</th>
+                   <th>MBL</th>
+                   <th>HBL</th>
+                   <th>Destino</th>
+                   <th>Navio</th>
+                   
+                 
+                   <th>Ação</th>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                   <th>Registro</th>
+                   <th>Agente</th>
+                   <th>ETA</th>
+                   <th>Data Chegada</th>
+                   <th>MBL</th>
+                   <th>HBL</th>
+                   <th>Destino</th>
+                   <th>Navio</th>
+                   
+                   
+                   <th>Ação</th>
+                </tr>
+            </tfoot>   
+            <tbody>
+                                                        <tr>
+                    <td>
+                        <a href="http://desconsol.pinho.com.br/registrosmar/12278">DSD12011/13</a>
+                    </td>
+                    <td>INTERGLOBO</td>
+                    <td>17-01-2014</td>
+                    <td>17-01-2014</td>
+                    <td>ITGOA166449</td>
+                    <td>1507287</td>
+                    <td>PARANAGUA</td>
+                    <td>AL ABDALI</td>
+                                 
+                    <td>
+                        <a href="http://desconsol.pinho.com.br/registrosmar/12278/edit">
+                            <button type="submit" class="btn btn-primary btn-xs">
+                                Editar
+                            </button>
+                        </a> 
+                            / <form method="POST" action="http://desconsol.pinho.com.br/registrosmar/12278" accept-charset="UTF-8" style="display:inline"><input name="_method" type="hidden" value="DELETE"><input name="_token" type="hidden" value="5benFbHoIwyIMLXFgkogG6WycPYHo361Upk1kyGF">
+                        <button type="submit" class="btn btn-danger btn-xs">
+                            Deletar
+                        </button>
+                            </form>
+                    </td>
+                </tr>
+                                            <tr>
+                    <td>
+                        <a href="http://desconsol.pinho.com.br/registrosmar/12279">DSD01004/14</a>
+                    </td>
+                    <td>INTERGLOBO</td>
+                    <td>19-02-2014</td>
+                    <td>19-02-2014</td>
+                    <td>PUSITJ000537</td>
+                    <td>3208986</td>
+                    <td>PARANAGUA</td>
+                    <td>CMA CGM CARMEN</td>
+                                 
+                    <td>
+                        <a href="http://desconsol.pinho.com.br/registrosmar/12279/edit">
+                            <button type="submit" class="btn btn-primary btn-xs">
+                                Editar
+                            </button>
+                        </a> 
+                            / <form method="POST" action="http://desconsol.pinho.com.br/registrosmar/12279" accept-charset="UTF-8" style="display:inline"><input name="_method" type="hidden" value="DELETE"><input name="_token" type="hidden" value="5benFbHoIwyIMLXFgkogG6WycPYHo361Upk1kyGF">
+                        <button type="submit" class="btn btn-danger btn-xs">
+                            Deletar
+                        </button>
+                            </form>
+                    </td>
+                </tr>
+                                            <tr>
+                    <td>
+                        <a href="http://desconsol.pinho.com.br/registrosmar/12280">DSD01011/14</a>
+                    </td>
+                    <td>SCHRYVER</td>
+                    <td>11-01-2014</td>
+                    <td>11-01-2014</td>
+                    <td>HDMUNWXX2943606</td>
+                    <td>208678</td>
+                    <td>NAVEGANTES</td>
+                    <td>HANJIN CHITTAGONG</td>
+                                 
+                    <td>
+                        <a href="http://desconsol.pinho.com.br/registrosmar/12280/edit">
+                            <button type="submit" class="btn btn-primary btn-xs">
+                                Editar
+                            </button>
+                        </a> 
+                            / <form method="POST" action="http://desconsol.pinho.com.br/registrosmar/12280" accept-charset="UTF-8" style="display:inline"><input name="_method" type="hidden" value="DELETE"><input name="_token" type="hidden" value="5benFbHoIwyIMLXFgkogG6WycPYHo361Upk1kyGF">
+                        <button type="submit" class="btn btn-danger btn-xs">
+                            Deletar
+                        </button>
+                            </form>
+                    </td>
+                </tr>
+                                            <tr>
+                    <td>
+                        <a href="http://desconsol.pinho.com.br/registrosmar/12281">DSD01010/14</a>
+                    </td>
+                    <td>SCHRYVER</td>
+                    <td>24-01-2014</td>
+                    <td>24-01-2014</td>
+                    <td>NA2459164</td>
+                    <td>208638</td>
+                    <td>NAVEGANTES</td>
+                    <td>MSC ENGLAND</td>
+                                 
+                    <td>
+                        <a href="http://desconsol.pinho.com.br/registrosmar/12281/edit">
+                            <button type="submit" class="btn btn-primary btn-xs">
+                                Editar
+                            </button>
+                        </a> 
+                            / <form method="POST" action="http://desconsol.pinho.com.br/registrosmar/12281" accept-charset="UTF-8" style="display:inline"><input name="_method" type="hidden" value="DELETE"><input name="_token" type="hidden" value="5benFbHoIwyIMLXFgkogG6WycPYHo361Upk1kyGF">
+                        <button type="submit" class="btn btn-danger btn-xs">
+                            Deletar
+                        </button>
+                            </form>
+                    </td>
+                </tr>
+                                            <tr>
+                    <td>
+                        <a href="http://desconsol.pinho.com.br/registrosmar/12282">DSD12020/13</a>
+                    </td>
+                    <td>BRAZIL WIND</td>
+                    <td>12-01-2014</td>
+                    <td>12-01-2014</td>
+                    <td>PPBCCPBF00</td>
+                    <td>24830160112</td>
+                    <td>NAVEGANTES</td>
+                    <td>MSC DONATA</td>
+                                 
+                    <td>
+                        <a href="http://desconsol.pinho.com.br/registrosmar/12282/edit">
+                            <button type="submit" class="btn btn-primary btn-xs">
+                                Editar
+                            </button>
+                        </a> 
+                            / <form method="POST" action="http://desconsol.pinho.com.br/registrosmar/12282" accept-charset="UTF-8" style="display:inline"><input name="_method" type="hidden" value="DELETE"><input name="_token" type="hidden" value="5benFbHoIwyIMLXFgkogG6WycPYHo361Upk1kyGF">
+                        <button type="submit" class="btn btn-danger btn-xs">
+                            Deletar
+                        </button>
+                            </form>
+                    </td>
+                </tr>
+                                            <tr>
+                    <td>
+                        <a href="http://desconsol.pinho.com.br/registrosmar/12283">DSD01005/14</a>
+                    </td>
+                    <td>INTERGLOBO</td>
+                    <td>28-01-2014</td>
+                    <td>28-01-2014</td>
+                    <td>MSCUGJ853469</td>
+                    <td>1507298A</td>
+                    <td>ITAPOA</td>
+                    <td>MSC CAROLE</td>
+                                 
+                    <td>
+                        <a href="http://desconsol.pinho.com.br/registrosmar/12283/edit">
+                            <button type="submit" class="btn btn-primary btn-xs">
+                                Editar
+                            </button>
+                        </a> 
+                            / <form method="POST" action="http://desconsol.pinho.com.br/registrosmar/12283" accept-charset="UTF-8" style="display:inline"><input name="_method" type="hidden" value="DELETE"><input name="_token" type="hidden" value="5benFbHoIwyIMLXFgkogG6WycPYHo361Upk1kyGF">
+                        <button type="submit" class="btn btn-danger btn-xs">
+                            Deletar
+                        </button>
+                            </form>
+                    </td>
+                </tr>
+                                            <tr>
+                    <td>
+                        <a href="http://desconsol.pinho.com.br/registrosmar/12284">DSD01006/14</a>
+                    </td>
+                    <td>INTERGLOBO</td>
+                    <td>28-01-2014</td>
+                    <td>28-01-2014</td>
+                    <td>MSCUGJ853469</td>
+                    <td>1507298B</td>
+                    <td>ITAPOA</td>
+                    <td>MSC CAROLE</td>
+                                 
+                    <td>
+                        <a href="http://desconsol.pinho.com.br/registrosmar/12284/edit">
+                            <button type="submit" class="btn btn-primary btn-xs">
+                                Editar
+                            </button>
+                        </a> 
+                            / <form method="POST" action="http://desconsol.pinho.com.br/registrosmar/12284" accept-charset="UTF-8" style="display:inline"><input name="_method" type="hidden" value="DELETE"><input name="_token" type="hidden" value="5benFbHoIwyIMLXFgkogG6WycPYHo361Upk1kyGF">
+                        <button type="submit" class="btn btn-danger btn-xs">
+                            Deletar
+                        </button>
+                            </form>
+                    </td>
+                </tr>
+                                            <tr>
+                    <td>
+                        <a href="http://desconsol.pinho.com.br/registrosmar/12285">DSD01008/14</a>
+                    </td>
+                    <td>INTERGLOBO</td>
+                    <td>05-02-2014</td>
+                    <td>05-02-2014</td>
+                    <td>MSCUK9678281</td>
+                    <td>IZM44340004904</td>
+                    <td>ITAPOA</td>
+                    <td>MSC MARIA LAURA</td>
+                                 
+                    <td>
+                        <a href="http://desconsol.pinho.com.br/registrosmar/12285/edit">
+                            <button type="submit" class="btn btn-primary btn-xs">
+                                Editar
+                            </button>
+                        </a> 
+                            / <form method="POST" action="http://desconsol.pinho.com.br/registrosmar/12285" accept-charset="UTF-8" style="display:inline"><input name="_method" type="hidden" value="DELETE"><input name="_token" type="hidden" value="5benFbHoIwyIMLXFgkogG6WycPYHo361Upk1kyGF">
+                        <button type="submit" class="btn btn-danger btn-xs">
+                            Deletar
+                        </button>
+                            </form>
+                    </td>
+                </tr>
+                                            <tr>
+                    <td>
+                        <a href="http://desconsol.pinho.com.br/registrosmar/12286">DSD01025/14</a>
+                    </td>
+                    <td>INTERGLOBO</td>
+                    <td>06-02-2014</td>
+                    <td>06-02-2014</td>
+                    <td>24ABPQY00</td>
+                    <td>9757121</td>
+                    <td>ITAPOA</td>
+                    <td>MAPOCHO</td>
+                                 
+                    <td>
+                        <a href="http://desconsol.pinho.com.br/registrosmar/12286/edit">
+                            <button type="submit" class="btn btn-primary btn-xs">
+                                Editar
+                            </button>
+                        </a> 
+                            / <form method="POST" action="http://desconsol.pinho.com.br/registrosmar/12286" accept-charset="UTF-8" style="display:inline"><input name="_method" type="hidden" value="DELETE"><input name="_token" type="hidden" value="5benFbHoIwyIMLXFgkogG6WycPYHo361Upk1kyGF">
+                        <button type="submit" class="btn btn-danger btn-xs">
+                            Deletar
+                        </button>
+                            </form>
+                    </td>
+                </tr>
+                                            <tr>
+                    <td>
+                        <a href="http://desconsol.pinho.com.br/registrosmar/12287">1330311M</a>
+                    </td>
+                    <td>PINHO</td>
+                    <td>01-02-2014</td>
+                    <td>01-02-2014</td>
+                    <td>ZIMUSNH7315189</td>
+                    <td>NSHA13120886</td>
+                    <td>PARANAGUA</td>
+                    <td>CMA CGM HUGO</td>
+                                 
+                    <td>
+                        <a href="http://desconsol.pinho.com.br/registrosmar/12287/edit">
+                            <button type="submit" class="btn btn-primary btn-xs">
+                                Editar
+                            </button>
+                        </a> 
+                            / <form method="POST" action="http://desconsol.pinho.com.br/registrosmar/12287" accept-charset="UTF-8" style="display:inline"><input name="_method" type="hidden" value="DELETE"><input name="_token" type="hidden" value="5benFbHoIwyIMLXFgkogG6WycPYHo361Upk1kyGF">
+                        <button type="submit" class="btn btn-danger btn-xs">
+                            Deletar
+                        </button>
+                            </form>
+                    </td>
+                </tr>
+                                            <tr>
+                    <td>
+                        <a href="http://desconsol.pinho.com.br/registrosmar/12288">DSD11033/13</a>
+                    </td>
+                    <td>SCHRYVER</td>
+                    <td>28-01-2014</td>
+                    <td>28-01-2014</td>
+                    <td>867857144</td>
+                    <td>ITA1311607</td>
+                    <td>ITAJAI</td>
+                    <td>SAGITTARIUS</td>
+                                 
+                    <td>
+                        <a href="http://desconsol.pinho.com.br/registrosmar/12288/edit">
+                            <button type="submit" class="btn btn-primary btn-xs">
+                                Editar
+                            </button>
+                        </a> 
+                            / <form method="POST" action="http://desconsol.pinho.com.br/registrosmar/12288" accept-charset="UTF-8" style="display:inline"><input name="_method" type="hidden" value="DELETE"><input name="_token" type="hidden" value="5benFbHoIwyIMLXFgkogG6WycPYHo361Upk1kyGF">
+                        <button type="submit" class="btn btn-danger btn-xs">
+                            Deletar
+                        </button>
+                            </form>
+                    </td>
+                </tr>
+                                            <tr>
+                    <td>
+                        <a href="http://desconsol.pinho.com.br/registrosmar/12289">DSD01033/14</a>
+                    </td>
+                    <td>BRAZIL WIND</td>
+                    <td>12-02-2014</td>
+                    <td>12-02-2014</td>
+                    <td>MSCUX3636524</td>
+                    <td>13ASTITP1013</td>
+                    <td>ITAPOA</td>
+                    <td>MSC AMERICA</td>
+                                 
+                    <td>
+                        <a href="http://desconsol.pinho.com.br/registrosmar/12289/edit">
+                            <button type="submit" class="btn btn-primary btn-xs">
+                                Editar
+                            </button>
+                        </a> 
+                            / <form method="POST" action="http://desconsol.pinho.com.br/registrosmar/12289" accept-charset="UTF-8" style="display:inline"><input name="_method" type="hidden" value="DELETE"><input name="_token" type="hidden" value="5benFbHoIwyIMLXFgkogG6WycPYHo361Upk1kyGF">
+                        <button type="submit" class="btn btn-danger btn-xs">
+                            Deletar
+                        </button>
+                            </form>
+                    </td>
+                </tr>
+                                            <tr>
+                    <td>
+                        <a href="http://desconsol.pinho.com.br/registrosmar/12290">DSD01016/14</a>
+                    </td>
+                    <td>INTERGLOBO</td>
+                    <td>29-01-2014</td>
+                    <td>29-01-2014</td>
+                    <td>24SBP0100</td>
+                    <td>9756964</td>
+                    <td>PARANAGUA</td>
+                    <td>CAP ROCA</td>
+                                 
+                    <td>
+                        <a href="http://desconsol.pinho.com.br/registrosmar/12290/edit">
+                            <button type="submit" class="btn btn-primary btn-xs">
+                                Editar
+                            </button>
+                        </a> 
+                            / <form method="POST" action="http://desconsol.pinho.com.br/registrosmar/12290" accept-charset="UTF-8" style="display:inline"><input name="_method" type="hidden" value="DELETE"><input name="_token" type="hidden" value="5benFbHoIwyIMLXFgkogG6WycPYHo361Upk1kyGF">
+                        <button type="submit" class="btn btn-danger btn-xs">
+                            Deletar
+                        </button>
+                            </form>
+                    </td>
+                </tr>
+                                            <tr>
+                    <td>
+                        <a href="http://desconsol.pinho.com.br/registrosmar/12291">DSD12014/13</a>
+                    </td>
+                    <td>INTERGLOBO</td>
+                    <td>20-01-2014</td>
+                    <td>20-01-2014</td>
+                    <td>MSCUT1776784</td>
+                    <td>6784H</td>
+                    <td>PARANAGUA</td>
+                    <td>MSC RAFAELA</td>
+                                 
+                    <td>
+                        <a href="http://desconsol.pinho.com.br/registrosmar/12291/edit">
+                            <button type="submit" class="btn btn-primary btn-xs">
+                                Editar
+                            </button>
+                        </a> 
+                            / <form method="POST" action="http://desconsol.pinho.com.br/registrosmar/12291" accept-charset="UTF-8" style="display:inline"><input name="_method" type="hidden" value="DELETE"><input name="_token" type="hidden" value="5benFbHoIwyIMLXFgkogG6WycPYHo361Upk1kyGF">
+                        <button type="submit" class="btn btn-danger btn-xs">
+                            Deletar
+                        </button>
+                            </form>
+                    </td>
+                </tr>
+                                            <tr>
+                    <td>
+                        <a href="http://desconsol.pinho.com.br/registrosmar/12292">DSD12008/13</a>
+                    </td>
+                    <td>INTERGLOBO</td>
+                    <td>17-01-2014</td>
+                    <td>17-01-2014</td>
+                    <td>MSCUTQ383188</td>
+                    <td>IZM41300004594</td>
+                    <td>PARANAGUA</td>
+                    <td>MSC JANUS</td>
+                                 
+                    <td>
+                        <a href="http://desconsol.pinho.com.br/registrosmar/12292/edit">
+                            <button type="submit" class="btn btn-primary btn-xs">
+                                Editar
+                            </button>
+                        </a> 
+                            / <form method="POST" action="http://desconsol.pinho.com.br/registrosmar/12292" accept-charset="UTF-8" style="display:inline"><input name="_method" type="hidden" value="DELETE"><input name="_token" type="hidden" value="5benFbHoIwyIMLXFgkogG6WycPYHo361Upk1kyGF">
+                        <button type="submit" class="btn btn-danger btn-xs">
+                            Deletar
+                        </button>
+                            </form>
+                    </td>
+                </tr>
+                                            <tr>
+                    <td>
+                        <a href="http://desconsol.pinho.com.br/registrosmar/12293">DSD01001/14</a>
+                    </td>
+                    <td>BRAZIL WIND</td>
+                    <td>14-01-2014</td>
+                    <td>14-01-2014</td>
+                    <td>MSCUX3618910</td>
+                    <td>13EXP002094</td>
+                    <td>PARANAGUA</td>
+                    <td>MSC SARISKA</td>
+                                 
+                    <td>
+                        <a href="http://desconsol.pinho.com.br/registrosmar/12293/edit">
+                            <button type="submit" class="btn btn-primary btn-xs">
+                                Editar
+                            </button>
+                        </a> 
+                            / <form method="POST" action="http://desconsol.pinho.com.br/registrosmar/12293" accept-charset="UTF-8" style="display:inline"><input name="_method" type="hidden" value="DELETE"><input name="_token" type="hidden" value="5benFbHoIwyIMLXFgkogG6WycPYHo361Upk1kyGF">
+                        <button type="submit" class="btn btn-danger btn-xs">
+                            Deletar
+                        </button>
+                            </form>
+                    </td>
+                </tr>
+                                            <tr>
+                    <td>
+                        <a href="http://desconsol.pinho.com.br/registrosmar/12294">1330347M</a>
+                    </td>
+                    <td>PINHO</td>
+                    <td>09-02-2014</td>
+                    <td>09-02-2014</td>
+                    <td>SUDU741427442009</td>
+                    <td>5014093</td>
+                    <td>PARANAGUA</td>
+                    <td>OELAND</td>
+                                 
+                    <td>
+                        <a href="http://desconsol.pinho.com.br/registrosmar/12294/edit">
+                            <button type="submit" class="btn btn-primary btn-xs">
+                                Editar
+                            </button>
+                        </a> 
+                            / <form method="POST" action="http://desconsol.pinho.com.br/registrosmar/12294" accept-charset="UTF-8" style="display:inline"><input name="_method" type="hidden" value="DELETE"><input name="_token" type="hidden" value="5benFbHoIwyIMLXFgkogG6WycPYHo361Upk1kyGF">
+                        <button type="submit" class="btn btn-danger btn-xs">
+                            Deletar
+                        </button>
+                            </form>
+                    </td>
+                </tr>
+                                            <tr>
+                    <td>
+                        <a href="http://desconsol.pinho.com.br/registrosmar/12295">DSD12016/13</a>
+                    </td>
+                    <td>INTERGLOBO</td>
+                    <td>31-01-2014</td>
+                    <td>31-01-2014</td>
+                    <td>MSCUDY227359</td>
+                    <td>3208882P4739</td>
+                    <td>PARANAGUA</td>
+                    <td>MSC LAURA</td>
+                                 
+                    <td>
+                        <a href="http://desconsol.pinho.com.br/registrosmar/12295/edit">
+                            <button type="submit" class="btn btn-primary btn-xs">
+                                Editar
+                            </button>
+                        </a> 
+                            / <form method="POST" action="http://desconsol.pinho.com.br/registrosmar/12295" accept-charset="UTF-8" style="display:inline"><input name="_method" type="hidden" value="DELETE"><input name="_token" type="hidden" value="5benFbHoIwyIMLXFgkogG6WycPYHo361Upk1kyGF">
+                        <button type="submit" class="btn btn-danger btn-xs">
+                            Deletar
+                        </button>
+                            </form>
+                    </td>
+                </tr>
+                                            <tr>
+                    <td>
+                        <a href="http://desconsol.pinho.com.br/registrosmar/12296">DSD01009/14</a>
+                    </td>
+                    <td>INTERGLOBO</td>
+                    <td>11-02-2014</td>
+                    <td>11-02-2014</td>
+                    <td>MSCUDY256507</td>
+                    <td>3209335P6549</td>
+                    <td>PARANAGUA</td>
+                    <td>PETROHUE</td>
+                                 
+                    <td>
+                        <a href="http://desconsol.pinho.com.br/registrosmar/12296/edit">
+                            <button type="submit" class="btn btn-primary btn-xs">
+                                Editar
+                            </button>
+                        </a> 
+                            / <form method="POST" action="http://desconsol.pinho.com.br/registrosmar/12296" accept-charset="UTF-8" style="display:inline"><input name="_method" type="hidden" value="DELETE"><input name="_token" type="hidden" value="5benFbHoIwyIMLXFgkogG6WycPYHo361Upk1kyGF">
+                        <button type="submit" class="btn btn-danger btn-xs">
+                            Deletar
+                        </button>
+                            </form>
+                    </td>
+                </tr>
+                                            <tr>
+                    <td>
+                        <a href="http://desconsol.pinho.com.br/registrosmar/12297">1331066N</a>
+                    </td>
+                    <td>PINHO</td>
+                    <td>15-01-2013</td>
+                    <td>15-01-2013</td>
+                    <td>MIAPAG35204</td>
+                    <td>ICLMIA701644</td>
+                    <td>PARANAGUA</td>
+                    <td>CCNI AQUILES</td>
+                                 
+                    <td>
+                        <a href="http://desconsol.pinho.com.br/registrosmar/12297/edit">
+                            <button type="submit" class="btn btn-primary btn-xs">
+                                Editar
+                            </button>
+                        </a> 
+                            / <form method="POST" action="http://desconsol.pinho.com.br/registrosmar/12297" accept-charset="UTF-8" style="display:inline"><input name="_method" type="hidden" value="DELETE"><input name="_token" type="hidden" value="5benFbHoIwyIMLXFgkogG6WycPYHo361Upk1kyGF">
+                        <button type="submit" class="btn btn-danger btn-xs">
+                            Deletar
+                        </button>
+                            </form>
+                    </td>
+                </tr>
+                                            <tr>
+                    <td>
+                        <a href="http://desconsol.pinho.com.br/registrosmar/12298">1331065N</a>
+                    </td>
+                    <td>PINHO</td>
+                    <td>15-01-2013</td>
+                    <td>15-01-2013</td>
+                    <td>MIAPAG35204</td>
+                    <td>ICLMIA701643</td>
+                    <td>PARANAGUA</td>
+                    <td>CCNI AQUILES</td>
+                                 
+                    <td>
+                        <a href="http://desconsol.pinho.com.br/registrosmar/12298/edit">
+                            <button type="submit" class="btn btn-primary btn-xs">
+                                Editar
+                            </button>
+                        </a> 
+                            / <form method="POST" action="http://desconsol.pinho.com.br/registrosmar/12298" accept-charset="UTF-8" style="display:inline"><input name="_method" type="hidden" value="DELETE"><input name="_token" type="hidden" value="5benFbHoIwyIMLXFgkogG6WycPYHo361Upk1kyGF">
+                        <button type="submit" class="btn btn-danger btn-xs">
+                            Deletar
+                        </button>
+                            </form>
+                    </td>
+                </tr>
+                                            <tr>
+                    <td>
+                        <a href="http://desconsol.pinho.com.br/registrosmar/12299">1331084N</a>
+                    </td>
+                    <td>PINHO</td>
+                    <td>23-01-2014</td>
+                    <td>23-01-2014</td>
+                    <td>MIAPAG40101</td>
+                    <td>ICLMIA701648</td>
+                    <td>PARANAGUA</td>
+                    <td>AS CATALANIA</td>
+                                 
+                    <td>
+                        <a href="http://desconsol.pinho.com.br/registrosmar/12299/edit">
+                            <button type="submit" class="btn btn-primary btn-xs">
+                                Editar
+                            </button>
+                        </a> 
+                            / <form method="POST" action="http://desconsol.pinho.com.br/registrosmar/12299" accept-charset="UTF-8" style="display:inline"><input name="_method" type="hidden" value="DELETE"><input name="_token" type="hidden" value="5benFbHoIwyIMLXFgkogG6WycPYHo361Upk1kyGF">
+                        <button type="submit" class="btn btn-danger btn-xs">
+                            Deletar
+                        </button>
+                            </form>
+                    </td>
+                </tr>
+                                            <tr>
+                    <td>
+                        <a href="http://desconsol.pinho.com.br/registrosmar/12300">1331067N</a>
+                    </td>
+                    <td>PINHO</td>
+                    <td>29-01-2014</td>
+                    <td>29-01-2014</td>
+                    <td>MIAPAG40202</td>
+                    <td>ICLMIA701652</td>
+                    <td>PARANAGUA</td>
+                    <td>CAP MORETON</td>
+                                 
+                    <td>
+                        <a href="http://desconsol.pinho.com.br/registrosmar/12300/edit">
+                            <button type="submit" class="btn btn-primary btn-xs">
+                                Editar
+                            </button>
+                        </a> 
+                            / <form method="POST" action="http://desconsol.pinho.com.br/registrosmar/12300" accept-charset="UTF-8" style="display:inline"><input name="_method" type="hidden" value="DELETE"><input name="_token" type="hidden" value="5benFbHoIwyIMLXFgkogG6WycPYHo361Upk1kyGF">
+                        <button type="submit" class="btn btn-danger btn-xs">
+                            Deletar
+                        </button>
+                            </form>
+                    </td>
+                </tr>
+                                            <tr>
+                    <td>
+                        <a href="http://desconsol.pinho.com.br/registrosmar/12301">1331068N</a>
+                    </td>
+                    <td>PINHO</td>
+                    <td>29-01-2014</td>
+                    <td>29-01-2014</td>
+                    <td>MIAPAG40202</td>
+                    <td>ICLMIA701653</td>
+                    <td>PARANAGUA</td>
+                    <td>CAP MORETON</td>
+                                 
+                    <td>
+                        <a href="http://desconsol.pinho.com.br/registrosmar/12301/edit">
+                            <button type="submit" class="btn btn-primary btn-xs">
+                                Editar
+                            </button>
+                        </a> 
+                            / <form method="POST" action="http://desconsol.pinho.com.br/registrosmar/12301" accept-charset="UTF-8" style="display:inline"><input name="_method" type="hidden" value="DELETE"><input name="_token" type="hidden" value="5benFbHoIwyIMLXFgkogG6WycPYHo361Upk1kyGF">
+                        <button type="submit" class="btn btn-danger btn-xs">
+                            Deletar
+                        </button>
+                            </form>
+                    </td>
+                </tr>
+                                            <tr>
+                    <td>
+                        <a href="http://desconsol.pinho.com.br/registrosmar/12302">DSD01013/14</a>
+                    </td>
+                    <td>INTERGLOBO</td>
+                    <td>29-01-2014</td>
+                    <td>29-01-2014</td>
+                    <td>24ABP1200</td>
+                    <td>9756965</td>
+                    <td>PARANAGUA</td>
+                    <td>CAP ROCA</td>
+                                 
+                    <td>
+                        <a href="http://desconsol.pinho.com.br/registrosmar/12302/edit">
+                            <button type="submit" class="btn btn-primary btn-xs">
+                                Editar
+                            </button>
+                        </a> 
+                            / <form method="POST" action="http://desconsol.pinho.com.br/registrosmar/12302" accept-charset="UTF-8" style="display:inline"><input name="_method" type="hidden" value="DELETE"><input name="_token" type="hidden" value="5benFbHoIwyIMLXFgkogG6WycPYHo361Upk1kyGF">
+                        <button type="submit" class="btn btn-danger btn-xs">
+                            Deletar
+                        </button>
+                            </form>
+                    </td>
+                </tr>
+                                            <tr>
+                    <td>
+                        <a href="http://desconsol.pinho.com.br/registrosmar/12303">1330209M</a>
+                    </td>
+                    <td>PINHO</td>
+                    <td>10-01-2014</td>
+                    <td>10-01-2014</td>
+                    <td>HBG0955501</td>
+                    <td>EXP312130036</td>
+                    <td>PARANAGUA</td>
+                    <td>MSC DONATA</td>
+                                 
+                    <td>
+                        <a href="http://desconsol.pinho.com.br/registrosmar/12303/edit">
+                            <button type="submit" class="btn btn-primary btn-xs">
+                                Editar
+                            </button>
+                        </a> 
+                            / <form method="POST" action="http://desconsol.pinho.com.br/registrosmar/12303" accept-charset="UTF-8" style="display:inline"><input name="_method" type="hidden" value="DELETE"><input name="_token" type="hidden" value="5benFbHoIwyIMLXFgkogG6WycPYHo361Upk1kyGF">
+                        <button type="submit" class="btn btn-danger btn-xs">
+                            Deletar
+                        </button>
+                            </form>
+                    </td>
+                </tr>
+                                            <tr>
+                    <td>
+                        <a href="http://desconsol.pinho.com.br/registrosmar/12304">1331030N</a>
+                    </td>
+                    <td>PINHO</td>
+                    <td>15-01-2014</td>
+                    <td>15-01-2014</td>
+                    <td>SUDU230016348215</td>
+                    <td>ICLMIA701647</td>
+                    <td>PARANAGUA</td>
+                    <td>CCNI AQUILES</td>
+                                 
+                    <td>
+                        <a href="http://desconsol.pinho.com.br/registrosmar/12304/edit">
+                            <button type="submit" class="btn btn-primary btn-xs">
+                                Editar
+                            </button>
+                        </a> 
+                            / <form method="POST" action="http://desconsol.pinho.com.br/registrosmar/12304" accept-charset="UTF-8" style="display:inline"><input name="_method" type="hidden" value="DELETE"><input name="_token" type="hidden" value="5benFbHoIwyIMLXFgkogG6WycPYHo361Upk1kyGF">
+                        <button type="submit" class="btn btn-danger btn-xs">
+                            Deletar
+                        </button>
+                            </form>
+                    </td>
+                </tr>
+                                            <tr>
+                    <td>
+                        <a href="http://desconsol.pinho.com.br/registrosmar/12305">1330329M</a>
+                    </td>
+                    <td>PINHO</td>
+                    <td>15-01-2013</td>
+                    <td>15-01-2013</td>
+                    <td>MIAPAG35204</td>
+                    <td>ICLMIA701642</td>
+                    <td>PARANAGUA</td>
+                    <td>CCNI AQUILES</td>
+                                 
+                    <td>
+                        <a href="http://desconsol.pinho.com.br/registrosmar/12305/edit">
+                            <button type="submit" class="btn btn-primary btn-xs">
+                                Editar
+                            </button>
+                        </a> 
+                            / <form method="POST" action="http://desconsol.pinho.com.br/registrosmar/12305" accept-charset="UTF-8" style="display:inline"><input name="_method" type="hidden" value="DELETE"><input name="_token" type="hidden" value="5benFbHoIwyIMLXFgkogG6WycPYHo361Upk1kyGF">
+                        <button type="submit" class="btn btn-danger btn-xs">
+                            Deletar
+                        </button>
+                            </form>
+                    </td>
+                </tr>
+                                            <tr>
+                    <td>
+                        <a href="http://desconsol.pinho.com.br/registrosmar/12306">DSD01007/14</a>
+                    </td>
+                    <td>BRAZIL WIND</td>
+                    <td>15-01-2014</td>
+                    <td>15-01-2014</td>
+                    <td>SUDU230016391247</td>
+                    <td>30004035</td>
+                    <td>PARANAGUA</td>
+                    <td>SPIRIT OF SYDNEI</td>
+                                 
+                    <td>
+                        <a href="http://desconsol.pinho.com.br/registrosmar/12306/edit">
+                            <button type="submit" class="btn btn-primary btn-xs">
+                                Editar
+                            </button>
+                        </a> 
+                            / <form method="POST" action="http://desconsol.pinho.com.br/registrosmar/12306" accept-charset="UTF-8" style="display:inline"><input name="_method" type="hidden" value="DELETE"><input name="_token" type="hidden" value="5benFbHoIwyIMLXFgkogG6WycPYHo361Upk1kyGF">
+                        <button type="submit" class="btn btn-danger btn-xs">
+                            Deletar
+                        </button>
+                            </form>
+                    </td>
+                </tr>
+                                            <tr>
+                    <td>
+                        <a href="http://desconsol.pinho.com.br/registrosmar/12307">DSD01022/14</a>
+                    </td>
+                    <td>BRAZIL WIND</td>
+                    <td>28-01-2014</td>
+                    <td>28-01-2014</td>
+                    <td>MSCUW3793491</td>
+                    <td>4054010164</td>
+                    <td>NAVEGANTES</td>
+                    <td>MSC ADELAIDE</td>
+                                 
+                    <td>
+                        <a href="http://desconsol.pinho.com.br/registrosmar/12307/edit">
+                            <button type="submit" class="btn btn-primary btn-xs">
+                                Editar
+                            </button>
+                        </a> 
+                            / <form method="POST" action="http://desconsol.pinho.com.br/registrosmar/12307" accept-charset="UTF-8" style="display:inline"><input name="_method" type="hidden" value="DELETE"><input name="_token" type="hidden" value="5benFbHoIwyIMLXFgkogG6WycPYHo361Upk1kyGF">
+                        <button type="submit" class="btn btn-danger btn-xs">
+                            Deletar
+                        </button>
+                            </form>
+                    </td>
+                </tr>
+                                            <tr>
+                    <td>
+                        <a href="http://desconsol.pinho.com.br/registrosmar/12308">DSD01017/14</a>
+                    </td>
+                    <td>INTERGLOBO</td>
+                    <td>23-01-2014</td>
+                    <td>23-01-2014</td>
+                    <td>24ABMRM00</td>
+                    <td>9756968</td>
+                    <td>ITAPOA</td>
+                    <td>CAP ROCA</td>
+                                 
+                    <td>
+                        <a href="http://desconsol.pinho.com.br/registrosmar/12308/edit">
+                            <button type="submit" class="btn btn-primary btn-xs">
+                                Editar
+                            </button>
+                        </a> 
+                            / <form method="POST" action="http://desconsol.pinho.com.br/registrosmar/12308" accept-charset="UTF-8" style="display:inline"><input name="_method" type="hidden" value="DELETE"><input name="_token" type="hidden" value="5benFbHoIwyIMLXFgkogG6WycPYHo361Upk1kyGF">
+                        <button type="submit" class="btn btn-danger btn-xs">
+                            Deletar
+                        </button>
+                            </form>
+                    </td>
+                </tr>
+                                            <tr>
+                    <td>
+                        <a href="http://desconsol.pinho.com.br/registrosmar/12309">DSD01019/14</a>
+                    </td>
+                    <td>SCHRYVER</td>
+                    <td>10-02-2014</td>
+                    <td>10-02-2014</td>
+                    <td>HLCUTPE131230783</td>
+                    <td>TPBL1401504</td>
+                    <td>PARANAGUA</td>
+                    <td>ITAL MASSIMA</td>
+                                 
+                    <td>
+                        <a href="http://desconsol.pinho.com.br/registrosmar/12309/edit">
+                            <button type="submit" class="btn btn-primary btn-xs">
+                                Editar
+                            </button>
+                        </a> 
+                            / <form method="POST" action="http://desconsol.pinho.com.br/registrosmar/12309" accept-charset="UTF-8" style="display:inline"><input name="_method" type="hidden" value="DELETE"><input name="_token" type="hidden" value="5benFbHoIwyIMLXFgkogG6WycPYHo361Upk1kyGF">
+                        <button type="submit" class="btn btn-danger btn-xs">
+                            Deletar
+                        </button>
+                            </form>
+                    </td>
+                </tr>
+                                            <tr>
+                    <td>
+                        <a href="http://desconsol.pinho.com.br/registrosmar/12310">DSD12005/13</a>
+                    </td>
+                    <td>NPT</td>
+                    <td>17-01-2014</td>
+                    <td>17-01-2014</td>
+                    <td>EMBRA003C0020</td>
+                    <td>1614201301</td>
+                    <td>PARANAGUA</td>
+                    <td>RIO NEGRO</td>
+                                 
+                    <td>
+                        <a href="http://desconsol.pinho.com.br/registrosmar/12310/edit">
+                            <button type="submit" class="btn btn-primary btn-xs">
+                                Editar
+                            </button>
+                        </a> 
+                            / <form method="POST" action="http://desconsol.pinho.com.br/registrosmar/12310" accept-charset="UTF-8" style="display:inline"><input name="_method" type="hidden" value="DELETE"><input name="_token" type="hidden" value="5benFbHoIwyIMLXFgkogG6WycPYHo361Upk1kyGF">
+                        <button type="submit" class="btn btn-danger btn-xs">
+                            Deletar
+                        </button>
+                            </form>
+                    </td>
+                </tr>
+
+        </tbody>
+    </table>
+
+
+</body>
+</html>

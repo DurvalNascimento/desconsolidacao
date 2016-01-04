@@ -1,8 +1,8 @@
-@extends('layouts.master')
+@extends('layouts.layoutagente')
 
 @section('content')
-
-    <h1>Edit Cliente</h1>
+    <br/>
+    <h1>Editar Cliente</h1>
     <hr/>
 
     {!! Form::model($cliente, [

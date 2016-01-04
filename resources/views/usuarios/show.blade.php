@@ -1,18 +1,18 @@
-@extends('layouts.layoutagente')
+@extends('layouts.master')
 
 @section('content')
 
-    <h1>Cliente</h1>
+    <h1>Usuario</h1>
     <div class="table-responsive">
         <table class="table table-bordered table-striped table-hover">
             <thead>
                 <tr>
-                    <th>ID.</th> <th>Nome</th><th>Cnpj</th><th>Endereco</th>
+                    <th>ID.</th> <th>Nome</th><th>Email</th><th>Password</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td>{{ $cliente->id }}</td> <td> {{ $cliente->nome }} </td><td> {{ $cliente->cnpj }} </td><td> {{ $cliente->endereco }} </td>
+                    <td>{{ $usuario->id }}</td> <td> {{ $usuario->nome }} </td><td> {{ $usuario->email }} </td><td> {{ $usuario->password }} </td>
                 </tr>
             </tbody>    
         </table>

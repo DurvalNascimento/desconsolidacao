@@ -9,8 +9,11 @@ use Redirect;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Bus\DispatchesCommands;
-use App\Console\Commands\sendmailCommand;
+use App\Console\Commands\enviarprealerta;
+use App\Console\Commands\previsaodechegada;
 use DB;
+use App\agente;
+use App\User;
 
 
 class MailController extends Controller
@@ -35,16 +38,9 @@ use DispatchesCommands;
     }
 
     
-    public function store(Request $request)
+    public static function store(Request $request)
        {        
-            $user = 'durval';
-        
-             Mail::send('mbl.prevchegadamail',['user' => $user], function($m){
-
-             $m->from('durval@pinho.com.br', 'Your Application');   
-            
-             $m->to('durval@pinho.com.br')->subject('testes');
-     });
+           
         }   
     
 
@@ -103,8 +99,98 @@ use DispatchesCommands;
                                               }
               }
 
-
                   
+    }
+
+
+
+      public static function enviarprealerta()
+
+    {
+                                                          
+                 $enviarprealerta = DB::table("files")->where('status', '=', '0')->groupBy('referencia')->get();
+                 
+                 foreach ($enviarprealerta as $key) 
+                 {
+
+
+                     $referencia = DB::table("files")->where('referencia', '=', $key->referencia)->get();
+                     foreach ($referencia as $ref) 
+                     {
+
+                           
+                      $arquivos[] = "public/upload/documentos/$ref->user_id/$ref->name"; 
+                      DB::table('files')->where('id', '=', $ref->id)->
+                      update(['status' => '1']);
+
+                    
+                    }   
+                                      $usuario = User::find($key->user_id);
+                                     
+                                      $agente = DB::table("agentes")->where('nome', '=', $usuario->empresa)->get();
+                                      foreach ($agente as $key1) {}
+
+                                      $key1->desconsolidar;  
+
+                                     if ($key1->desconsolidar == 1)
+                                      {
+
+                                      Mail::raw('RECEBEMOS DO CLIENTE '.$key1->nome.'  O PRÉ-ALERTA EM ANEXO PARA DESCONSOLIDAR', function($m)
+                                      use ($arquivos, $key1){
+                                      $m->from('durval@pinho.com.br', 'PRÉ-Alerta');   
+                                      $m->to($key1->email1)->cc($key1->email2)->subject('Pré-alerta')->attach($arquivos[0])
+                                      ->attach($arquivos[1]);  });  
+                                      } else
+
+                                      {
+                                       Mail::raw('RECEBEMOS DO CLIENTE '.$key1->nome.'  O PRÉ-ALERTA EM ANEXO. Somente para desconsolidação documental', function($m)
+                                      use ($arquivos, $key1){
+                                      $m->from('durval@pinho.com.br', 'PRÉ-Alerta');   
+                                      $m->to($key1->email1)->cc($key1->email2)->subject('Pré-alerta')->attach($arquivos[0])
+                                      ->attach($arquivos[1]);  });  
+                                       }
+                                    
+                       
+
+                                    
+                    }
+             
+                              
+    }
+
+    public static function prealertarecebido()
+    {
+        
+    }
+
+    public static function insertmbl()
+    {
+        //
+    }
+
+    public static function updateeta()
+    {
+        //
+    }
+
+    public static function updateatracado()
+    {
+        //
+    }
+
+    public static function updatedesatracado()
+    {
+        //
+    }
+
+    public static function updatepresenca()
+    {
+        //
+    }
+
+    public static function updateliberado()
+    {
+        //
     }
 
 }

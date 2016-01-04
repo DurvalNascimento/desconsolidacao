@@ -150,12 +150,11 @@ class faturamentoController extends Controller
  
        
             $registros = Hbl::where('faturado', 0)->where('agente', $agente)->get();
-           
 
             if(count($registros) > 0)
                 {
                     return view('faturamento.faturarmaritimo', compact('registros','notafiscals'));
-                }   
+                }
                 else
                 {
                     $clientesagente = DB::table('agentes')->orderBy('nome')->get();
@@ -176,7 +175,6 @@ class faturamentoController extends Controller
 
 
                    $agente = DB::table('agentes')->where('nome', '=', $ag)->get();
-
 
                    foreach($agente as $item){ }
 
@@ -220,7 +218,7 @@ class faturamentoController extends Controller
                                DB::table('mbls')->where('id', '=', $key1->id)->
                                update(['id_notafiscal' => $id, 'faturado' => '1', 'finalizado' => '1',  
                                'dataFaturamento' => $data]);
-
+                              
                                 }  
 
                                
@@ -334,6 +332,21 @@ class faturamentoController extends Controller
                       return view('faturamento.listarafaturaraereo', compact('registros'));
 
     }
+
+
+
+
+           public function faturamentoagentes()
+    {
+
+        $loggedUser =\Auth::user()->empresa;
+
+        $registrosar = DB::table('vw_aereo')->where('agente', '=', $loggedUser)->where('faturado',0)->get();
+        $maritimos = Hbl::where('faturado', 0)->where('agente', $loggedUser)->get();
+
+        return view('faturamento.faturamentoagentes', compact('maritimos', 'registrosar'));
+    }
+
 
 }
 

@@ -1,9 +1,10 @@
-@extends('layouts.master')
+@extends('layouts.layoutagente')
 
 @section('content')
-
-    <h1>Create New Cliente</h1>
+    <br/>
+    <h1>Adicionar Cliente</h1>
     <hr/>
+    <br/>
 
     {!! Form::open(['route' => 'cliente.store', 'class' => 'form-horizontal']) !!}
 

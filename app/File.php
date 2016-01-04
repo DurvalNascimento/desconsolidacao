@@ -17,7 +17,7 @@ class File extends Model {
      *
      * @var array
      */
-    protected $fillable = ['name', 'user_id', 'referencia'];
+    protected $fillable = ['name', 'user_id', 'referencia', 'hbl', 'armador'];
 
 
     public function user()

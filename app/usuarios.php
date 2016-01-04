@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class termo extends Model
+class usuarios extends Model
 {
 
     /**
@@ -12,20 +12,13 @@ class termo extends Model
      *
      * @var string
      */
-    protected $table = 'termos';
+    protected $table = 'usuarios';
 
     /**
      * Attributes that should be mass-assignable.
      *
      * @var array
      */
-    protected $fillable = ['name', 'hbl_id', 'token', 'sign', 'agente_id'];
-
-
-    public function hbls()
-    {
-        return $this->belongsTo('App\Hbl', 'hbl_id');
-
-    }
+    protected $fillable = ['nome', 'email', 'password', 'nivelAcess', 'empresa', 'ativo'];
 
 }

@@ -17,6 +17,7 @@ use Validator;
 use Redirect;
 use Session;
 use App\Hbl;
+use DB;
 
 
 
@@ -30,8 +31,11 @@ class termoController extends Controller
      * @return Response
      */
     public function index()
-    {
-        $termos = termo::latest()->get();
+    {   
+        $loggedUser =\Auth::user()->empresa;
+        $agente = DB::table("agentes")->where('nome', '=', $loggedUser)->get();
+        foreach ($agente as $key) {}
+        $termos = termo::where('agente_id', $key->id)->get();
         return view('termo.index', compact('termos'));
     }
 
@@ -41,8 +45,11 @@ class termoController extends Controller
      * @return Response
      */
     public function create()
-    {
-        $hbls = hbl::where('finalizado',0)->get();
+    {   
+        $loggedUser =\Auth::user()->empresa;
+        $agente = DB::table("agentes")->where('nome', '=', $loggedUser)->get();
+        foreach ($agente as $key) {}
+        $hbls = hbl::where('finalizado',0)->where('agente', '=', $key->nome)->where('termo',0)->get();
         return view('termo.create', compact('hbls'));
     }
 
@@ -109,7 +116,11 @@ class termoController extends Controller
      * @return Response
      */
     public function destroy($id)
-    {
+    {   
+        $termo = termo::find($id);
+        $hbl = $termo->hbl_id;
+        DB::table('hbls')->where('id', '=', $hbl)->
+        update(['termo' => '0']); 
         termo::destroy($id);
         return redirect('termo');
     }
@@ -132,8 +143,15 @@ class termoController extends Controller
             $destinationPath = 'upload/termos';
             $filename = $file->getClientOriginalName();
             $upload_success = $file->move($destinationPath, $filename);
-          
-            termo::create(['name'=>$filename, 'hbl_id'=>$hbl]);  
+
+            $loggedUser =\Auth::user()->empresa;
+            $agente = DB::table("agentes")->where('nome', '=', $loggedUser)->get();
+            foreach ($agente as $key) {}
+
+             DB::table('hbls')->where('id', '=', $hbl)->
+             update(['termo' => '1']);    
+
+            termo::create(['name'=>$filename, 'hbl_id'=>$hbl, 'agente_id'=>$key->id]);  
 
             Session::flash('success', 'Upload successfully'); 
             return Redirect::to('termo');

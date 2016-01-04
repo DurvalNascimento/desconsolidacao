@@ -19,7 +19,10 @@ class Mbl extends Model
      *
      * @var array
      */
-    protected $fillable = ['registro', 'NMbl', 'cnee', 'navioPrimeiraPerna', 'navio', 'viagem', 'POR', 'POL', 'POD', 'transbordo', 'tipo', 'ceMbl', 'dataRegCeMbl', 'ETA', 'atracado', 'desatracado', 'freetime', 'cnpj', 'vlrFrete', 'vlrTHC', 'moedaFrete', 'armador', 'dataFaturamento', 'faturado', 'finalizado', 'desconsolidar', 'notafiscal_id', 'agente_id'];
+    protected $fillable = ['registro', 'NMbl', 'cnee', 'navioPrimeiraPerna', 'navio', 'viagem', 'POR', 'POL', 'POD', 
+    'transbordo', 'tipo', 'ceMbl', 'dataRegCeMbl', 'ETA', 'atracado', 'desatracado', 'freetime', 'cnpj', 'vlrFrete', 
+    'vlrTHC', 'moedaFrete', 'armador', 'dataFaturamento', 'faturado', 'finalizado', 'notafiscal_id',  
+    'agente_id', 'hblcnee', 'NHbl','ceHbl', 'prealerta', 'desconsolidado'];
 
 
    

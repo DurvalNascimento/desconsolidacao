@@ -19,7 +19,9 @@ class Hbl extends Model
      *
      * @var array
      */
-    protected $fillable = ['ETA', 'NHbl', 'NMbl', 'ceHbl', 'datace', 'freetime', 'shipper', 'cnee', 'cnpjcnee', 'vlrFrete', 'moedaFrete', 'vlrTHC', 'faturado', 'mbl_id','notafiscal_id', 'agente', 'finalizado', 'vlrDesconsol', 'dataFaturamento', 'referencia'];
+    protected $fillable = ['ETA', 'NHbl', 'NMbl', 'ceHbl', 'datace', 'freetime', 'shipper', 'cnee', 
+    'cnpjcnee', 'vlrFrete', 'moedaFrete', 'vlrTHC', 'faturado', 'mbl_id','notafiscal_id', 'agente', 
+    'finalizado', 'vlrDesconsol', 'dataFaturamento', 'referencia', 'termo'];
 
 
     public function mbls()

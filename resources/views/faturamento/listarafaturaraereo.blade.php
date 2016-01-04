@@ -15,7 +15,7 @@
 
             <thead>
                 <tr>
-                   <th>Agente</th><th>MAWB</th><th>HAWB</th><th>Chegada</th><th>Faturado</th><th>Destino</th>
+                   <th>Agente</th><th>MAWB</th><th>HAWB</th><th>Chegada</th><th>Faturado</th><th>Destino</th><th>Delivery</th>
                 </tr>
             </thead> 
 
@@ -37,6 +37,7 @@
                 <?php if ($item->faturado == '0') {$a = 'Não';} else {$a = 'sim';} ?> 
                 <td><a><?php echo $a ?> </a></td>
                 <td><a>{{ $item->destino }}</a></td>
+                <td><a>{{ $item->vlrDelivery }}</a></td>
                               
                 
             </tr>   

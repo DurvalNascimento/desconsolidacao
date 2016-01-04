@@ -26,7 +26,7 @@ class MblController extends Controller
      */
     public function index()
     {
-        $mblsativos = DB::table("vw_mbl")->where('finalizado', '=', '0')->orderBy('ETA')->get();
+        $mblsativos = DB::table("vw_mbl")->where('desconsolidado', '=', '0')->orderBy('ETA')->get();
         $mblsfinalizados = DB::table("vw_mbl")->where('finalizado', '=', '1')->orderBy('ETA')->get();
         $prevchegada = DB::table("vw_mbl")->where('atracado', '=', '00/00/0000')->orderBy('ETA')->get();
         $hbls = Hbl::where('finalizado', 0)->orderBy('ETA')->get();
@@ -144,14 +144,18 @@ class MblController extends Controller
 
     }
 
-        public function reg()
+        public function listareg()
     {
 
          $loggedUser =\Auth::user()->empresa;
         
         //$registros = Registro::latest()->get();
-        $maritimos = DB::table('vw_mbl')->where('agente', '=', $loggedUser)->get();
-        return view('mbl.listareg', compact('maritimos')); 
+       
+        $mblsativos = DB::table("vw_mbl")->where('cnee', '=', $loggedUser)->where('finalizado', '=', '0')->orderBy('ETA')->get();
+        $mblsfinalizados = DB::table("vw_mbl")->where('cnee', '=', $loggedUser)->where('finalizado', '=', '1')->orderBy('ETA')->get();
+        $prevchegada = DB::table("vw_mbl")->where('cnee', '=', $loggedUser)->where('atracado', '=', '00/00/0000')->orderBy('ETA')->get();
+        $hbls = Hbl::where('agente', '=', $loggedUser)->orderBy('ETA')->get();
+        return view('mbl.listareg', compact('mblsativos','mblsfinalizados', 'prevchegada', 'hbls' )); 
     }
 
         public function prevchegada()
@@ -177,7 +181,7 @@ class MblController extends Controller
 
         $loggedUser =\Auth::user()->empresa;
         //$registros = Faturamento::latest()->get();
-        $maritimos = DB::table('vw_mbl')->where('agente', '=', $loggedUser)->get();
+        $maritimos = DB::table('vw_mbl')->where('cnee', '=', $loggedUser)->get();
         return view('mbl.agefat', compact('maritimos'));
     }
 

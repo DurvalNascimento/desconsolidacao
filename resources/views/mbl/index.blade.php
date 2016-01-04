@@ -28,7 +28,7 @@
                       
                       
                       <ul class="nav nav-tabs">
-                      <li class="active"><a data-toggle="tab" href="#home">Ativos</a></li>
+                      <li class="active"><a data-toggle="tab" href="#home">Aguardando Desconsolidação</a></li>
                       <li><a data-toggle="tab" href="#menu1">Finalizados</a></li>
                       <li><a data-toggle="tab" href="#menu2">Previsão de Chegada</a></li>
                       <li><a data-toggle="tab" href="#menu3">HBL´s</a></li></ul>
@@ -88,7 +88,7 @@
                           <div id="menu1" class="tab-pane fade">
                            <h3>Finalizados</h3>
 
-                                       <div class="col-sm-12">  
+                           <div class="col-sm-12">  
                                 <div class="col-sm-2">
                                   <div>
                                       <i class="fa fa-calendar"></i>
@@ -101,7 +101,7 @@
                                       Data final:<input class="form-control" id="max" name="max" value="30/06/2016">
                                   </div>
                                 </div>
-                         </div>
+                            </div>
                               
                                     <table id='dtable' class="table  table-bordered table-condensed table-hover" style="font-size: 0.9em;">
 
@@ -206,7 +206,7 @@
 
                                                       <thead>
                                                             <tr>
-                                                                <th>Agente</th><th>MBL</th><th>ETA</th><th>HBL</th><th>Actions</th>
+                                                                <th>Agente</th><th>MBL</th><th>ETA</th><th>HBL</th><th>Data Desconsol</th><th>Actions</th>
                                                             </tr>
                                                         </thead>
                                                         
@@ -216,7 +216,9 @@
                                                            
                                                             <tr>
                                                           
-                                                                <td>{{ $item->mbls->cnee }}</td><td>{{ $item->NMbl }}</td><td><?php echo date('d/m/Y', strtotime($item->mbls->ETA)); ?></td><td>{{ $item->NHbl }}</td>
+                                                                <td>{{ $item->mbls->cnee }}</td><td>{{ $item->NMbl }}</td>
+                                                                <td><?php echo date('d/m/Y', strtotime($item->mbls->ETA)); ?></td>
+                                                                <td>{{ $item->NHbl }}</td><td><?php echo date('d/m/Y', strtotime($item->datace)); ?></td>
                                                                 <td>
                                                                     <a href="{{ route('hbl.edit', $item->id) }}">
                                                                         <button type="submit" class="btn btn-primary btn-xs">Editar</button>

@@ -16,7 +16,10 @@ use Validator;
 use Redirect;
 use Session;
 use App\Http\Controllers\MblController;
-
+use Mail;
+use App\agente;
+use DB;
+use App\Mbl;
 
 class FileController extends Controller
 {
@@ -105,6 +108,19 @@ class FileController extends Controller
   //  return redirect('file');
   //}
 
+   public function fileupagente()
+    {
+       
+    
+        $userId = \Auth::user()->id;
+
+        $user = \App\User::with('files')->find($userId);
+        //$user = DB::table('files')->where('id', '=', $userId)->get();
+        
+        return view('file.fileupadminagente')->with(compact('user'));
+         
+      }
+
  public function fileup()
     {
 
@@ -114,8 +130,15 @@ class FileController extends Controller
 
         $user = \App\User::with('files')->find($userId);
         //$user = DB::table('files')->where('id', '=', $userId)->get();
-
+        if ($userId == 1) 
+        {
+        
         return view('file.fileupadmin')->with(compact('user'));
+      } else 
+
+      {
+        return view('file.fileupadminagente')->with(compact('user'));
+      }
    
     }
 
@@ -128,7 +151,6 @@ class FileController extends Controller
         // start count how many uploaded
 
 
-        $uploadcount = 0;
         foreach($files as $file) {
           $rules = array('file' => 'required'); //'required|mimes:png,gif,jpeg,txt,pdf,doc'
           $validator = Validator::make(array('file'=> $file), $rules);
@@ -136,39 +158,57 @@ class FileController extends Controller
 
             $user_id = \Request::get('user_id');
             $ref = \Request::get('referencia');
+            $hbl = \Request::get('hbl');
+            $armador = \Request::get('armador');
+            
+
 
             $destinationPath = 'upload/documentos/'.$user_id;
             $filename = $file->getClientOriginalName();
             $upload_success = $file->move($destinationPath, $filename);
           
-            File::create(['name'=>$filename, 'referencia'=>$ref, 'user_id'=>$user_id]);  
+            File::create(['name'=>$filename, 'referencia'=>$ref, 'user_id'=>$user_id, 'hbl'=>$hbl, 'armador'=>$armador]);  
 
-            $uploadcount ++;
           }
         }
 
 
-
-
+        if ($file_count == 2) {
+          
         
-        if($uploadcount == $file_count){
-          Session::flash('success', 'Upload successfully'); 
+        $user_id = \Request::get('user_id');
+        $usuario = User::find($user_id);
+                              
+        $agente = DB::table("agentes")->where('nome', '=', $usuario->empresa)->get();
+        foreach ($agente as $key) {}
 
+
+        $ref = \Request::get('referencia');
+        $agente1 = agente::find($key->id);
+        $mbl = Mbl::where('NMbl', $ref)->get();
+
+        foreach ($mbl as $item) {}
+         if (!empty($item->id)) {
+         DB::table('mbls')->where('id', '=', $item->id)->update(['prealerta' => '1']);
           
-          return Redirect::to('fileup');
-        } 
-        else {
+        } else { Mail::raw('O Pré-Alerta referente ao Mbl '.$ref.',  recebido a poucos minutos não está cadastrado no sistem ainda - 
+                OBS: isto é um teste do sistema', function($m)
+                 {
+                 $m->from('durval@pinho.com.br', 'PRÉ-Alerta');   
+                 $m->to('durval@pinho.com.br')->cc('desconsol@pinho.com.br')->subject('Pré-alerta'); }); }
+   
 
-          
+                 Mail::raw('RECEBEMOS PRÉ-ALERTA REFERENTE AO MBL '.$ref.',  Obrigado', function($m) use ($agente1)
+                 {
+                 $m->from('durval@pinho.com.br', 'PRÉ-Alerta');   
+                 $m->to($agente1->email1)->subject('Pré-alerta'); });  
 
 
-          MblController::prevchegadamail();
+                return Redirect::to('fileup');
 
-
-
-
-          return Redirect::to('fileup')->withInput()->withErrors($validator);
-        }
+         } 
+        
+     
     }
 
 

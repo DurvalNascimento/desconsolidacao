@@ -118,7 +118,18 @@
                     {!! $errors->first('armador', '<p class="help-block">:message</p>') !!}
                 </div>
             </div>
-           
+            <div class="form-group {{ $errors->has('ativo') ? 'has-error' : ''}}">
+                {!! Form::label('desconsolidado', 'Deconsolidado: ', ['class' => 'col-sm-3 control-label']) !!}
+                <div class="col-sm-6">
+                                <div class="checkbox">
+                <label>{!! Form::radio('ativo', '1') !!} Yes</label>
+            </div>
+            <div class="checkbox">
+                <label>{!! Form::radio('desconsolidado', '0', true) !!} No</label>
+            </div>
+                    {!! $errors->first('desconsolidado', '<p class="help-block">:message</p>') !!}
+                </div>
+            </div>
 
 
     <div class="form-group">

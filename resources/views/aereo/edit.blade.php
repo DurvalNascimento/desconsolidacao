@@ -68,16 +68,16 @@
                 </div>
             </div>
             <div class="form-group {{ $errors->has('vlrDesconsol') ? 'has-error' : ''}}">
-                {!! Form::label('vlrDesconsol', 'Vlrdesconsol: ', ['class' => 'col-sm-3 control-label', 'step' => 'any']) !!}
+                {!! Form::label('vlrDesconsol', 'Vlrdesconsol: ', ['class' => 'col-sm-3 control-label') !!}
                 <div class="col-sm-6">
-                    {!! Form::number('vlrDesconsol', null, ['class' => 'form-control']) !!}
+                    {!! Form::number('vlrDesconsol', null, ['class' => 'form-control'], 'step' => 'any']) !!}
                     {!! $errors->first('vlrDesconsol', '<p class="help-block">:message</p>') !!}
                 </div>
             </div>
             <div class="form-group {{ $errors->has('vlrDelivery') ? 'has-error' : ''}}">
                 {!! Form::label('vlrDelivery', 'Vlrdelivery: ', ['class' => 'col-sm-3 control-label']) !!}
                 <div class="col-sm-6">
-                    {!! Form::number('vlrDelivery', null, ['class' => 'form-control']) !!}
+                    {!! Form::number('vlrDelivery', null, ['class' => 'form-control', 'step' => 'any']) !!}
                     {!! $errors->first('vlrDelivery', '<p class="help-block">:message</p>') !!}
                 </div>
             </div>

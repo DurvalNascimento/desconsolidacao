@@ -17,7 +17,8 @@ class Kernel extends ConsoleKernel
      */
     protected $commands = [
         \App\Console\Commands\Inspire::class,
-        \App\Console\Commands\sendmailCommand::class,
+        \App\Console\Commands\enviarprealerta::class,
+        \App\Console\Commands\previsaodechegada::class,
        
     ];
 
@@ -30,9 +31,10 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {   
 
-      //$schedule->exec('php /var/www/newdesconsol/enviarmail.php')->hourly();
+    
+       $schedule->command('enviar:emailenviarprealerta')->everyMinute();
+      // $schedule->command('send:emailprevisaodechegada')->everyMinute();
 
-       //$schedule->command('send:email')->everyMinute();
      
     }
 }

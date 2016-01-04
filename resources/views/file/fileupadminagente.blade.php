@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('layouts.layoutagente')
 
 @section('content')
 
@@ -16,10 +16,22 @@
               @endif
               <div class="secure">Upload form - POR FAVOR CERTIFIQUE-SE QUE O NÚMERO DO MBL ESTÁ CORRETO.</div>
               {!! Form::open(array('url'=>'multiple_upload','method'=>'POST', 'files'=>true)) !!}
-                
+
+           
+                              
                 <div class="form-group">
                   <label>MBL:</label>
-                  <input type="text" required="required" class="form-control" id="referencia" name="referencia">
+                  <input type="text" required="required" class="form-control" id="referencia" name="referencia" value="" >
+                </div>
+
+                <div class="form-group">
+                  <label>HBL:</label>
+                  <input type="text" required="required" class="form-control" id="hbl" name="hbl" value="" >
+                </div>
+
+                <div class="form-group">
+                  <label>Armador:</label>
+                  <input type="text" required="required" class="form-control" id="armador" name="armador" value="" >
                 </div>
 
                 <div class="control-group">
@@ -97,7 +109,9 @@
                         <th>Usuário</th>
                         <th>Agente</th>
                         <th>Status</th>
-                        <th>Ações</th>
+                        <th>MBL</th>
+
+                 
                     </tr>
                 </thead>
                 <tbody>
@@ -109,12 +123,13 @@
                         <td>{!! $user->name !!}</td>
                         <td>{{ Auth::user()->empresa }}</td>
                         <td>{!! $file->status !!}</td>
+                        <td>{!! $file->referencia !!}</td>
 
 
-                        <td>
+                <!--        <td>
                             <a href="{!! route('files.download', [$user->id, $file->id]) !!}" class="btn btn-xs btn-success">download</a>
                             <a href="{!! route('files.destroy', [$user->id, $file->id]) !!}" class="btn btn-xs btn-danger">excluir</a>
-                        </td>
+                        </td> -->
                     </tr>
                     @endforeach
                 </tbody>

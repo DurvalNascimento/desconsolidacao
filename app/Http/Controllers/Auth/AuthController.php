@@ -23,13 +23,9 @@ class AuthController extends Controller
 
     use AuthenticatesAndRegistersUsers, ThrottlesLogins;
 
-    protected $redirectTo = '/menuagente';
-
-    /**
-     * Create a new authentication controller instance.
-     *
-     * @return void
-     */
+      protected $redirectTo = '/menuagente';
+      protected $redirectPath = '/menuagente';
+  
     public function __construct()
     {
         $this->middleware('guest', ['except' => 'getLogout']);
@@ -62,6 +58,9 @@ class AuthController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
+
         ]);
+
+        
     }
 }

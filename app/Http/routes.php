@@ -22,17 +22,22 @@ Route::resource('termo', 'termoController');
 Route::resource('mbl', 'MblController');
 Route::resource('hbl', 'HblController');
 
-Route::get('teste', function () {
-    return view('dashboard');
-});
+//Route::get('home', 'MblController@menuagente');
+    
+
 
 Route::resource('email', 'MblController@email');
 Route::resource('mail', 'MailController');
 Route::resource('aereo', 'aereoController');
 Route::resource('listareg', 'MblController@reg');
 Route::resource('notafiscal', 'notafiscalController');
+
+//Enviar e-mails
 Route::resource('previsaodechegada', 'MailController@previsaodechegada');
 Route::resource('contato', 'MailController@store');
+Route::resource('enviarprealerta', 'MailController@enviarprealerta');
+Route::resource('prealertarecebido', 'MailController@prealertarecebido');
+
 
 
 
@@ -56,7 +61,7 @@ Route::resource('listarafaturaraereo', 'faturamentoController@listarafaturaraere
 Route::resource('agente', 'agenteController');
 Route::resource('/', 'MblController@menu');
 Route::resource('menuagente', 'MblController@menuagente');
-Route::resource('agefat', 'MblController@agefat'); // listar faturamento agente
+Route::resource('faturamentoagentes', 'faturamentoController@faturamentoagentes'); // listar faturamento agente
 
 
 
@@ -66,22 +71,22 @@ Route::resource('listaregar', 'aereoController@listaregar'); // listagem registr
 
 
 // middleware
-Route::get('listareg', ['middleware' => 'agentemid', 'uses' => 'MblController@reg']); // listagem registros maritimos agente
+Route::get('listareg', ['middleware' => 'agentemid', 'uses' => 'MblController@listareg']); // listagem registros maritimos agente
 Route::get('prevchegada', 'MblController@prevchegada'); // previsão chegada admin
 //Route::get('prevchegadaagente', 'maritimoController@prevchegadaagente'); // previsão chegada agente
 //Route::get('prevchegada', ['middleware' => 'adminmid', 'uses' => 'maritimoController@prevchegada']);
-//Route::get('maritimo', ['middleware' => 'adminmid', 'uses' => 'maritimoController@index']);
+Route::get('mbl', ['middleware' => 'adminmid', 'uses' => 'MblController@index']);
 //Route::get('aereo', ['middleware' => 'adminmid', 'uses' => 'aereoController@index']);
 //Route::get('regfat', ['middleware' => 'adminmid', 'uses' => 'maritimoController@regfat']);
 
 
 
-Route::resource('addfreetime', 'maritimoController@addfreetime');
 
 // upload 
 
 Route::get('selecagente', 'FileController@selecagente');
 Route::resource('fileup', 'FileController@fileup');
+Route::resource('fileupagente', 'FileController@fileupagente');
 Route::post('multiple_upload', ['as' => 'files.upload', 'uses' => 'FileController@multiple_upload']);
 Route::post('upload', ['as' => 'files.upload', 'uses' => 'FileController@upload']);
 Route::get('usuario/{userId}/download/{fileId}', ['as' => 'files.download', 'uses' => 'FileController@download']);
@@ -93,14 +98,8 @@ Route::controllers([
 ]);
 
 
-
-
+// Termo de container
 Route::post('termo/upload', 'termoController@upload');
-
-
 Route::get('termo/sign/{id}', 'termoController@showSign');
 
-
-
-
-
+Route::resource('usuarios', 'usuariosController');

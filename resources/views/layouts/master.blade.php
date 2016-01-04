@@ -156,6 +156,14 @@
                  <li><a href="/agente"><i class="fa fa-circle-o"></i>Cadastro</a></li>
               </ul>
             </li>
+             <li class="treeview">
+              <a href="#">
+                <i class="fa fa-dashboard"></i> <span>USUÁRIOS</span> <i class="fa fa-angle-left pull-right"></i>
+                </a>
+                <ul class="treeview-menu">
+                 <li><a href="/usuarios"><i class="fa fa-circle-o"></i>Cadastro</a></li>
+              </ul>
+            </li>
                         
             
               

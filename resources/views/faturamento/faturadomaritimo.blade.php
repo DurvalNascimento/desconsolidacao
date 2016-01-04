@@ -3,6 +3,9 @@
 @section('content')
   
 
+  <br/>
+  <br/>
+
     <h1>
         FATURADO
         

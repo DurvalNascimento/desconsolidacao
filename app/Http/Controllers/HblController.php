@@ -91,7 +91,7 @@ class HblController extends Controller
 
         Session::flash('flash_message', 'Hbl successfully updated!');
 
-        return redirect('hbl');
+        return redirect('mbl');
     }
 
     
@@ -101,7 +101,7 @@ class HblController extends Controller
 
         Session::flash('flash_message', 'Hbl successfully deleted!');
 
-        return redirect('hbl');
+        return redirect('mbl');
     }
 
 }

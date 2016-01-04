@@ -3,11 +3,13 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>HDTRANS</title>
-    <!-- Tell the browser to be responsive to screen width -->
+     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
     <!-- Data table -->
     <link href="../../style/plugins/datatables/dataTables.bootstrap.css" rel="stylesheet">
+
+    
 
     <!-- Bootstrap 3.3.5 -->
     <link rel="stylesheet" href="../../style/bootstrap/css/bootstrap.min.css">
@@ -15,9 +17,12 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="../../style/dist/css/AdminLTE.min.css">
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="../../style/dist/css/skins/_all-skins.min.css">
+
+    <link rel="stylesheet" href="../../bower_components/jquery-file-upload/css/jquery.fileupload.css">
 
   </head>
 
@@ -126,9 +131,10 @@
                
                  
                   <li><a href="/listareg"><i class="fa fa-circle-o"></i>Listar Registro Marítimo</a></li>
-                  <li><a href="/prevchegada"><i class="fa fa-circle-o"></i>Previsão de Chegada</a></li>
-                  <li><a href="/agefat"><i class="fa fa-circle-o"></i>Faturamento</a></li>
-                  <li><a href="/clientecliente"><i class="fa fa-circle-o"></i>Clientes</a></li>
+                  <li><a href="/faturamentoagentes"><i class="fa fa-circle-o"></i>Faturamento</a></li>
+                  <li><a href="/cliente"><i class="fa fa-circle-o"></i>Clientes</a></li>
+                  <li><a href="/termo"><i class="fa fa-circle-o"></i>Termo de container</a></li>
+                  <li><a href="/fileup"><i class="fa fa-circle-o"></i>Enviar Pré-alerta</a></li>
 
               </ul>
             </li>
@@ -163,11 +169,14 @@
     </div>
 
 
+
     <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
     <script type="text/javascript" src="../../style/plugins/datatables/jquery.dataTables.min.js"></script>
     <script src="../../style/plugins/datatables/dataTables.bootstrap.min.js"></script>
     <!-- jQuery UI 1.11.4 -->
     <script src="../../style/plugins/jQueryUI/jquery-ui.min.js"></script>
+
+    <script src="../style/bootstrap/js/jquery.ui.widget.js"></script>
     <!-- Bootstrap 3.3.5 -->
     <script src="../../style/bootstrap/js/bootstrap.min.js"></script>
     <!-- AdminLTE App -->
@@ -175,6 +184,10 @@
     
     <!--meu-->
     <script src="../../style/mainjs/mainjs.js"></script>
+   
+    
+    <script src="../../bower_components/jquery-file-upload/js/vendor/jquery.ui.widget.js"></script>
+    <script src="../../bower_components/jquery-file-upload/js/jquery.fileupload.js"></script>
     
 
   </body>

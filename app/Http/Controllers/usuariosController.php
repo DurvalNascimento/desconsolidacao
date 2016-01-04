@@ -5,13 +5,14 @@ namespace App\Http\Controllers;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-use App\cliente;
+use App\usuarios;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use Session;
+use App\User;
 use DB;
 
-class clienteController extends Controller
+class usuariosController extends Controller
 {
 
     /**
@@ -21,13 +22,9 @@ class clienteController extends Controller
      */
     public function index()
     {
-        $loggedUser =\Auth::user()->empresa;
-        $agente = DB::table("agentes")->where('nome', '=', $loggedUser)->get();
-        foreach ($agente as $key) {}
+        $usuarios = User::paginate(15);
 
-        $clientes = cliente::where('id_agente', $key->id)->orderBy('nome')->get();
-
-        return view('cliente.index', compact('clientes'));
+        return view('usuarios.index', compact('usuarios'));
     }
 
     /**
@@ -36,8 +33,8 @@ class clienteController extends Controller
      * @return Response
      */
     public function create()
-    {
-        return view('cliente.create');
+    {   $clientesagente = DB::table('agentes')->orderBy('nome')->get();
+        return view('usuarios.create', compact('clientesagente'));
     }
 
     /**
@@ -47,12 +44,12 @@ class clienteController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, ['cnpj' => 'required']); 
-        cliente::create($request->all());
+        
+        User::create($request->all());
 
-        Session::flash('flash_message', 'cliente successfully added!');
+        Session::flash('flash_message', 'usuarios successfully added!');
 
-        return redirect('cliente');
+        return redirect('usuarios');
     }
 
     /**
@@ -63,9 +60,9 @@ class clienteController extends Controller
      */
     public function show($id)
     {
-        $cliente = cliente::findOrFail($id);
+        $usuario = User::findOrFail($id);
 
-        return view('cliente.show', compact('cliente'));
+        return view('usuarios.show', compact('usuario'));
     }
 
     /**
@@ -76,9 +73,9 @@ class clienteController extends Controller
      */
     public function edit($id)
     {
-        $cliente = cliente::findOrFail($id);
+        $usuario = User::findOrFail($id);
 
-        return view('cliente.edit', compact('cliente'));
+        return view('usuarios.edit', compact('usuario'));
     }
 
     /**
@@ -90,12 +87,12 @@ class clienteController extends Controller
     public function update($id, Request $request)
     {
         
-        $cliente = cliente::findOrFail($id);
-        $cliente->update($request->all());
+        $usuario = User::findOrFail($id);
+        $usuario->update($request->all());
 
-        Session::flash('flash_message', 'cliente successfully updated!');
+        Session::flash('flash_message', 'usuarios successfully updated!');
 
-        return redirect('cliente');
+        return redirect('usuarios');
     }
 
     /**
@@ -106,11 +103,11 @@ class clienteController extends Controller
      */
     public function destroy($id)
     {
-        cliente::destroy($id);
+        User::destroy($id);
 
-        Session::flash('flash_message', 'cliente successfully deleted!');
+        Session::flash('flash_message', 'usuarios successfully deleted!');
 
-        return redirect('cliente');
+        return redirect('usuarios');
     }
 
 }

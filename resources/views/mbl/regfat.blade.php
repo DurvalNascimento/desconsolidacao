@@ -32,14 +32,14 @@
 
             <thead>
                 <tr>
-                   <th>Agente</th><th>MBL</th><th>HBL</th><th>Chegada</th><th>Faturado</th><th>Opção</th>
+                   <th>Agente</th><th>MBL</th><th>HBL</th><th>Valor</th><th>Faturado</th><th>Opção</th>
                 </tr>
             </thead> 
 
 
             <tfoot>
                 <tr>
-                   <th>Agente</th><th>MBL</th><th>HBL</th><th>Chegada</th><th>Faturado</th><th>Opção</th>
+                   <th>Agente</th><th>MBL</th><th>HBL</th><th>Valor</th><th>Faturado</th><th>Opção</th>
                 </tr>
             </foot> 
 
@@ -55,7 +55,7 @@
                 
                 <td><a>{{ $item->cnee }}</a></td>
                 <td><a>{{ $item->NMbl }}</a></td>
-                <td><a>{{ $item->NHbl }}</a></td>
+                <td><a>{{ $item->vlrDesconsol }}</a></td>
                 <?php if ($item->faturado == '0') {$a = 'Não';} else {$a = 'sim';} ?> 
                 <td><a><?php echo $a ?> </a></td>
                 <td>{!! Form::checkbox('admin[]', $item->id, true) !!}</td>

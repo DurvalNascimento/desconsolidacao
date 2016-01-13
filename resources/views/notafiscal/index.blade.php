@@ -24,12 +24,12 @@
         <table id='dtable' class="table table-bordered table-condensed table-hover" style="font-size: 0.8em;">
             <thead>
                 <tr>
-                    <th>Número</th><th>Valor</th><th>Data</th><th>Taxa</th><th>Status</th><th>Actions</th>
+                    <th>Número</th><th>Valor</th><th>Data</th><th>Taxa</th><th>Cliente</th><th>Status</th><th>Actions</th>
                 </tr>
             </thead>
             <tfoot>
                 <tr>
-                    <th>Número</th><th>Valor</th><th>Data</th><th>Taxa</th><th>Status</th><th>Actions</th>
+                    <th>Número</th><th>Valor</th><th>Data</th><th>Taxa</th><th>Cliente</th><th>Status</th><th>Actions</th>
                 </tr>
             </tfoot>
             <tbody>
@@ -40,27 +40,27 @@
                   
                    <td><a href="{{ url('/notafiscal', $item->id) }}">
                    {{ $item->numero }}</a></td><td>{{ $item->valor }}</td><td><?php echo date('d/m/Y', strtotime($item->data)); ?></td>
-                   </td><td>{{ $item->taxaUsd }}</td>
+                   </td><td>{{ $item->taxaUsd }}</td><td>{{ $item->agente }}</td>
                    <td><?php if ($item->status == '0') {$a = 'Aguardando';} else {$a = 'Faturada';} ?> 
                    <a><?php echo $a ?> </a></td>
 
                     <td>
                         <a href="{{ route('notafiscal.edit', $item->id) }}">
-                            <button type="submit" class="btn btn-primary btn-xs">Update</button>
+                            <button type="submit" class="btn btn-primary btn-xs">Editar</button>
                         </a> /
                         {!! Form::open([
                             'method'=>'DELETE',
                             'route' => ['notafiscal.destroy', $item->id],
                             'style' => 'display:inline'
                         ]) !!}
-                            {!! Form::submit('Delete', ['class' => 'btn btn-danger btn-xs']) !!}
+                            {!! Form::submit('Deletar', ['class' => 'btn btn-danger btn-xs']) !!}
                         {!! Form::close() !!}
                     </td>
                 </tr>
             @endforeach
             </tbody>
         </table>
-        <div class="pagination"> {!! $notafiscals->render() !!} </div>
+        
     </div>
 
 @endsection

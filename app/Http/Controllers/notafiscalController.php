@@ -24,7 +24,7 @@ class notafiscalController extends Controller
      */
     public function index()
     {
-        $notafiscals = notafiscal::paginate(15);
+        $notafiscals = notafiscal::paginate(100);
 
         return view('notafiscal.index', compact('notafiscals'));
     }

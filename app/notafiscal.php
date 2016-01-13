@@ -19,7 +19,7 @@ class notafiscal extends Model
      *
      * @var array
      */
-    protected $fillable = ['numero', 'data', 'taxaUsd', 'valor', 'status'];
+    protected $fillable = ['numero', 'data', 'taxaUsd', 'valor', 'status', 'agente'];
 
 
     public function Registros()

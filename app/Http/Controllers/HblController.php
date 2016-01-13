@@ -12,6 +12,7 @@ use Session;
 use DB;
 use App\faturamento;
 use App\Mbl;
+use App\agente;
 use Validator;
 
 class HblController extends Controller
@@ -34,7 +35,8 @@ class HblController extends Controller
 
     
     public function store(Request $request)
-    {
+        {
+
         $this->validate($request, ['NMbl' => 'required', 'NHbl' => 'required']);
         $registrosmars = DB::table('mbls')->where('Nmbl', '=', $request->NMbl)->get();
 
@@ -48,13 +50,21 @@ class HblController extends Controller
          $os = 'OS'.$pod.$id.'/'.$ano;
          $cnee = $key->cnee;
          $mbl = $key->NMbl;
+
+         
+
+         $agenteId = DB::table('agentes')->where('nome', '=', $key->cnee)->get();
+         foreach ($agenteId as $item)  {}
+           
+         $valor =  $item->valordesconsolmaritimo;
         
 
+         
          
        
          Hbl::create(['ETA' => $data, 'NMbl' => $mbl, 'NHbl' => $request->NHbl, 
                             'referencia' => $os, 'mbl_id' => $id, 'shipper' 
-                            => $request->shipper, 'cnee' => $request->cnee ,'agente' => $cnee]);
+                            => $request->shipper, 'cnee' => $request->cnee ,'agente' => $cnee, 'vlrDesconsol' => $valor]);
 
          $hbl = DB::table('hbls')->where('NHbl', '=', $request->NHbl)->get();
             foreach ($hbl as $item) {}                
@@ -63,7 +73,7 @@ class HblController extends Controller
         Faturamento::create(['documento' => $request->NHbl, 'data' => $data, 'hbl_id' => $hblid, 
                             'referencia' => $referencia, 'OS' => $os]);
 
-        return redirect('hbl');
+        return redirect('mbl');
     }
 
     

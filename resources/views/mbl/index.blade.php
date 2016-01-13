@@ -28,7 +28,7 @@
                       
                       
                       <ul class="nav nav-tabs">
-                      <li class="active"><a data-toggle="tab" href="#home">Aguardando Desconsolidação</a></li>
+                      <li class="active"><a data-toggle="tab" href="#home">Ativos</a></li>
                       <li><a data-toggle="tab" href="#menu1">Finalizados</a></li>
                       <li><a data-toggle="tab" href="#menu2">Previsão de Chegada</a></li>
                       <li><a data-toggle="tab" href="#menu3">HBL´s</a></li></ul>

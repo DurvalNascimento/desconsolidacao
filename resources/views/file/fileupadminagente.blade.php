@@ -109,9 +109,7 @@
                         <th>Usuário</th>
                         <th>Agente</th>
                         <th>Status</th>
-                        <th>MBL</th>
-
-                 
+                      
                     </tr>
                 </thead>
                 <tbody>
@@ -123,10 +121,9 @@
                         <td>{!! $user->name !!}</td>
                         <td>{{ Auth::user()->empresa }}</td>
                         <td>{!! $file->status !!}</td>
-                        <td>{!! $file->referencia !!}</td>
 
 
-                <!--        <td>
+                     <!--   <td>
                             <a href="{!! route('files.download', [$user->id, $file->id]) !!}" class="btn btn-xs btn-success">download</a>
                             <a href="{!! route('files.destroy', [$user->id, $file->id]) !!}" class="btn btn-xs btn-danger">excluir</a>
                         </td> -->

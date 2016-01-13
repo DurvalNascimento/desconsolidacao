@@ -1,16 +1,29 @@
-@extends('layouts.master')
+<!DOCTYPE html>
+<html>
+    <head>
+       
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        
 
-@section('content')
-
+    <title>Desonsol HdTrans</title>
+           
+    </head>    
     
-    <br>
-    <h1>Registros para Faturamento </h1>
+    </br>
+
+   
+    <body>
+
+    <h3>Registros para Faturamento AÉREO <?php   echo $data = date("d/m/Y");?></h3>
+ </br>
+
+    <h4>Taxa a ser utilizada Ptax do dia que for emitida a Nota Fiscal</h4>
       
     
-    <div class="table">
+  
 
-
-       <table class="table table-bordered table-striped table-hover"  cellspacing="0" width="100%" style="font-size: 90%;">
+      <table border="1" style="width:100%">
               
 
             <thead>
@@ -49,22 +62,31 @@
             </tbody>
         </table>
     </br>
+
+  <h4>Favor confirmar os dados acima para emitirmos a NF</h4>
+  </br>
+
+  <?php $vlr = $x * $item->vlrDesconsol; 
+  echo "Valor Total em USD ";
+  echo $vlr;
+  ?>
+
+<div class="footer-col col-md-4">  
+<p>Dados Bancarios:
+Banco Bradesco
+Agencia: 0426-0
+Conta Corrente: 138374-4
+CNPJ: 02.637.242/0001-16
+HdTrans Transportes de Cargas </p>
+</div>      
     </br>
     </br>
 
         
-    @if ($errors->any())
-        <ul class="alert alert-danger">
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    @endif
-
-         
+            
     </div>
 
         
          </div>
+</html>
         
-@endsection

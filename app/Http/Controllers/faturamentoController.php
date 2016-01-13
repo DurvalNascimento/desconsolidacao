@@ -14,6 +14,7 @@ use App\Mbl;
 use App\notafiscal;
 use App\Hbl;
 use App\aereo;
+use PDF;
 
 class faturamentoController extends Controller
 {
@@ -119,18 +120,27 @@ class faturamentoController extends Controller
 
     public function listarafaturar(Request $request)
     {
-                 
+                  
+
                     $regselect =  $request->admin;
+
+
 
                      foreach ($regselect as $key)
                                {
 
+                               $registro = Hbl::findOrFail($key); 
+                               $agente = $registro->agente;
                                $registros[] = Hbl::findOrFail($key);
-                              
+                                                           
                                }  
-                       
-                        
-                      return view('faturamento.listafaturarmar', compact('registros'));
+
+                             $data = date("d/m/Y");
+                                               
+                      //return view('faturamento.listafaturarmar', compact('registros'));
+                      $pdf = PDF::loadView('faturamento.listafaturarmar', compact('registros'));
+
+                     return $pdf->download( 'Faturar-'.$data.$agente.'-MAR'.'.pdf');
 
     }
 
@@ -242,7 +252,7 @@ class faturamentoController extends Controller
     {
 
              
-                $registros = Hbl::where('faturado', 0)
+                $registros = Hbl::where('faturado', 0)->orderBy('ETA')
                ->get();
                 
                 return view('faturamento.regfat', compact('registros'));
@@ -324,12 +334,22 @@ class faturamentoController extends Controller
                      foreach ($regselect as $key)
                                {
 
+                               $registro = aereo::findOrFail($key); 
+                               $agente = $registro->agente; 
+
                                $registros[] = aereo::findOrFail($key);
                               
                                }  
                        
                         
-                      return view('faturamento.listarafaturaraereo', compact('registros'));
+                      //return view('faturamento.listarafaturaraereo', compact('registros'));
+
+                             $data = date("d/m/Y");
+                                               
+                   
+                      $pdf = PDF::loadView('faturamento.listarafaturaraereo', compact('registros'));
+
+                      return $pdf->download( 'Faturar-'.$data.$agente.'-AR'.'.pdf');
 
     }
 

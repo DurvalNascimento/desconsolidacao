@@ -68,9 +68,9 @@
                 </div>
             </div>
             <div class="form-group {{ $errors->has('vlrDesconsol') ? 'has-error' : ''}}">
-                {!! Form::label('vlrDesconsol', 'Vlrdesconsol: ', ['class' => 'col-sm-3 control-label') !!}
+                {!! Form::label('vlrDesconsol', 'Vlrdesconsol: ', ['class' => 'col-sm-3 control-label']) !!}
                 <div class="col-sm-6">
-                    {!! Form::number('vlrDesconsol', null, ['class' => 'form-control'], 'step' => 'any']) !!}
+                    {!! Form::number('vlrDesconsol', null, ['class' => 'form-control', 'step' => 'any']) !!}
                     {!! $errors->first('vlrDesconsol', '<p class="help-block">:message</p>') !!}
                 </div>
             </div>

@@ -32,7 +32,7 @@ class Kernel extends ConsoleKernel
     {   
 
     
-       $schedule->command('enviar:emailenviarprealerta')->everyMinute();
+       $schedule->command('enviar:emailenviarprealerta')->everyFiveMinutes();
       // $schedule->command('send:emailprevisaodechegada')->everyMinute();
 
      

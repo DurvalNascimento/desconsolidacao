@@ -103,3 +103,11 @@ Route::post('termo/upload', 'termoController@upload');
 Route::get('termo/sign/{id}', 'termoController@showSign');
 
 Route::resource('usuarios', 'usuariosController');
+
+Route::get('/pdf', function() {
+
+$pdf = PDF::loadView('welcome');
+//return $pdf->stream();
+return $pdf->download('welcome.pdf');
+
+});

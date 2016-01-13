@@ -43,7 +43,7 @@
                     <td>
                         <a href="{{ route('aereo.edit', $item->id) }}">
                             <button type="submit" class="btn btn-primary btn-xs">Editar</button>
-                        </a> /
+                        </a> 
                         {!! Form::open([
                             'method'=>'DELETE',
                             'route' => ['aereo.destroy', $item->id],

@@ -26,7 +26,7 @@ class MblController extends Controller
      */
     public function index()
     {
-        $mblsativos = DB::table("vw_mbl")->where('desconsolidado', '=', '0')->orderBy('ETA')->get();
+        $mblsativos = DB::table("vw_mbl")->where('finalizado', '=', '0')->orderBy('ETA')->get();
         $mblsfinalizados = DB::table("vw_mbl")->where('finalizado', '=', '1')->orderBy('ETA')->get();
         $prevchegada = DB::table("vw_mbl")->where('atracado', '=', '00/00/0000')->orderBy('ETA')->get();
         $hbls = Hbl::where('finalizado', 0)->orderBy('ETA')->get();

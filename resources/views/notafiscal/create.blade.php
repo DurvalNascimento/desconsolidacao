@@ -2,7 +2,9 @@
 
 @section('content')
 
-    <h1>Create New Notafiscal</h1>
+<br/>
+
+    <h3>INCLUIR NOTA FISCAL</h3>
     <hr/>
 
     {!! Form::open(['route' => 'notafiscal.store', 'class' => 'form-horizontal']) !!}
@@ -33,6 +35,13 @@
                 <div class="col-sm-6">
                     {!! Form::number('valor', null, ['class' => 'form-control', 'step' => 'any']) !!}
                     {!! $errors->first('valor', '<p class="help-block">:message</p>') !!}
+                </div>
+            </div>
+             <div class="form-group {{ $errors->has('agente') ? 'has-error' : ''}}">
+                {!! Form::label('agente', 'Agente: ', ['class' => 'col-sm-3 control-label']) !!}
+                <div class="col-sm-6">
+                    {!! Form::text('agente', null, ['class' => 'form-control']) !!}
+                    {!! $errors->first('agente', '<p class="help-block">:message</p>') !!}
                 </div>
             </div>
             <div class="form-group {{ $errors->has('status') ? 'has-error' : ''}}">
